@@ -33,15 +33,9 @@ class ForagerFileRepositoryTest {
         assertEquals(2, all.size());
     }
 
-//    @Test
-//    void shouldFindSmith() {
-//        Forager smith = repo.findById();
-//    }
-
     @Test
     void shouldAdd() throws DataException {
         Forager forager = new Forager();
-        forager.setId("200");
         forager.setFirstName("Lea");
         forager.setLastName("Salonga");
         forager.setState("CA");
@@ -49,7 +43,7 @@ class ForagerFileRepositoryTest {
         Forager actual = repo.add(forager);
 
         assertNotNull(actual);
-        assertEquals(1, actual.getId());
+        assertEquals("Lea", actual.getFirstName());
     }
 
 

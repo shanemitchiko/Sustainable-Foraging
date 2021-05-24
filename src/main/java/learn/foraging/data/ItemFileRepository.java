@@ -11,6 +11,8 @@ import java.util.List;
 
 public class ItemFileRepository implements ItemRepository {
 
+    private static final String DELIMITER = ",";
+    private static final String DELIMITER_REPLACEMENT = "@@@";
     private static final String HEADER = "id,name,category,dollars/kilogram";
     private final String filePath;
 
@@ -118,5 +120,13 @@ public class ItemFileRepository implements ItemRepository {
         } catch (FileNotFoundException ex) {
             throw new DataException(ex);
         }
+    }
+
+    private String clean(String value) {
+        return value.replace(DELIMITER, DELIMITER_REPLACEMENT);
+    }
+
+    private String restore(String value) {
+        return value.replace(DELIMITER_REPLACEMENT, DELIMITER);
     }
 }

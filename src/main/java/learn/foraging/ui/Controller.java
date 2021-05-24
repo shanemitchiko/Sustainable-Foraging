@@ -148,9 +148,6 @@ public class Controller {
         LocalDate date = view.getForageDate();
         Map<String, Double> itemKgByDay = forageService.getItemKgByDay(date);
         view.displayReportKgPerItemByDay(itemKgByDay);
-
-
-
     }
 
     private void reportTotalValuePerCategoryByDay() throws DataException {

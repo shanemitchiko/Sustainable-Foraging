@@ -43,6 +43,7 @@ public class ForagerService {
             return result;
         }
 
+
         validateDuplicate(forager, result);
         return result;
     }
@@ -66,25 +67,6 @@ public class ForagerService {
         return result;
     }
 
-    private Result<Forager> validateInputs(Forager forager) {
-        Result<Forager> result = new Result<>();
-
-        if (!forager.getFirstName().matches("[a-zA-Z_]+")) {
-            result.addErrorMessage("Invalid Name");
-            return result;
-        }
-
-        if (!forager.getLastName().matches("[a-zA-Z_]+")) {
-            result.addErrorMessage("Invalid Name");
-            return result;
-        }
-
-//        if (!forager.getState().matches("[a-zA-Z_]+") && forager.getState().chars(2)) {
-//            result.addErrorMessage("Invalid Name");
-//            return result;
-//        }
-        return result;
-    }
 
     private void validateDuplicate(Forager forager, Result<Forager> result) {
         List<Forager> foragers = repository.findAll();
@@ -98,5 +80,6 @@ public class ForagerService {
             }
         }
     }
+
 }
 

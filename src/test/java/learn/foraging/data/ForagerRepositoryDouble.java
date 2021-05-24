@@ -38,7 +38,10 @@ public class ForagerRepositoryDouble implements ForagerRepository {
 
     @Override
     public Forager add(Forager forager) throws DataException {
-        return null;
+        List<Forager> all = findAll();
+        forager.setId(FORAGER.getId());
+        all.add(forager);
+        return forager;
     }
 
     private static Forager makeForager() {

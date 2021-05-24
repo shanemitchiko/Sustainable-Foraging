@@ -66,5 +66,12 @@ class ItemServiceTest {
         assertEquals(2, result.getPayload().getId());
     }
 
+    @Test
+    void shouldNotAddDuplicate() throws DataException {
+        Item item = ItemRepositoryDouble.ITEM;
+        Result<Item> result = service.add(item);
+        assertFalse(result.isSuccess());
+    }
+
 
 }

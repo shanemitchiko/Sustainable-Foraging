@@ -42,7 +42,6 @@ public class ForageService {
         return result;
     }
 
-
     public Map<String, Double> getItemKgByDay(LocalDate date) {
 
         List<Forage> forages = findByDate(date);

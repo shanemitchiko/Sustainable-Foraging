@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class ForagerFileRepository implements ForagerRepository {
 
+    private static final String DELIMITER = ",";
+    private static final String DELIMITER_REPLACEMENT = "@@@";
     private static final String HEADER = "id,firstName,lastName,state";
     private final String filePath;
 
@@ -84,17 +86,25 @@ public class ForagerFileRepository implements ForagerRepository {
     private String serialize(Forager forager) {
         return String.format("%s,%s,%s,%s",
                 forager.getId(),
-                forager.getFirstName(),
-                forager.getLastName(),
+                clean(forager.getFirstName()),
+                clean(forager.getLastName()),
                 forager.getState());
     }
-    
+
     private Forager deserialize(String[] fields) {
         Forager result = new Forager();
         result.setId(fields[0]);
-        result.setFirstName(fields[1]);
-        result.setLastName(fields[2]);
-        result.setState(fields[3]);
+        result.setFirstName(restore(fields[1]));
+        result.setLastName(restore(fields[2]));
+        result.setState(restore(fields[3]));
         return result;
+    }
+
+    private String clean(String value) {
+        return value.replace(DELIMITER, DELIMITER_REPLACEMENT);
+    }
+
+    private String restore(String value) {
+        return value.replace(DELIMITER_REPLACEMENT, DELIMITER);
     }
 }
