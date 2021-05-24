@@ -43,7 +43,6 @@ public class ForageService {
     }
 
     public Map<String, Double> getItemKgByDay(LocalDate date) {
-
         List<Forage> forages = findByDate(date);
 
         return forages.stream()
@@ -53,7 +52,6 @@ public class ForageService {
     }
 
     public Map<Category, Double> getCategoryValueByDay(LocalDate date) {
-
         List<Forage> forages = findByDate(date);
 
         return forages.stream()
@@ -61,7 +59,6 @@ public class ForageService {
                         Collectors.summingDouble(f -> f.getValue().doubleValue())));
 
     }
-
 
     public Result<Forage> add(Forage forage) throws DataException {
         Result<Forage> result = validate(forage);
@@ -174,7 +171,6 @@ public class ForageService {
     private void validateDuplicate(Forage forage, Result<Forage> result) {
         List<Forage> forages = findByDate(forage.getDate());
         if (forages.size() > 0) {
-
 
             for (Forage f : forages) {
                 if(forage.getItem().getName() != null

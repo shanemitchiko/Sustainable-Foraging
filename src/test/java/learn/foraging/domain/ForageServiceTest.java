@@ -94,7 +94,7 @@ class ForageServiceTest {
     }
 
     @Test
-    void shouldNotAddWithTooLargeKg() throws DataException {
+    void shouldNotAddWithTooHighKg() throws DataException {
         Forage forage = new Forage();
         forage.setDate(LocalDate.of(2012, 12, 03));
         forage.setForager(ForagerRepositoryDouble.FORAGER);

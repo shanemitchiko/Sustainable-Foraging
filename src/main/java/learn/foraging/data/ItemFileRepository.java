@@ -90,7 +90,7 @@ public class ItemFileRepository implements ItemRepository {
     private String serialize(Item item) {
         return String.format("%s,%s,%s,%s",
                 item.getId(),
-                item.getName(),
+                clean(item.getName()),
                 item.getCategory(),
                 item.getDollarPerKilogram());
     }
@@ -98,7 +98,7 @@ public class ItemFileRepository implements ItemRepository {
     private Item deserialize(String[] fields) {
         Item result = new Item();
         result.setId(Integer.parseInt(fields[0]));
-        result.setName(fields[1]);
+        result.setName(restore(fields[1]));
         result.setCategory(Category.valueOf(fields[2]));
         result.setDollarPerKilogram(new BigDecimal(fields[3]));
         return result;
