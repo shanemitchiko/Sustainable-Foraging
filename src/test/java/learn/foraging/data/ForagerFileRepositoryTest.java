@@ -30,7 +30,7 @@ class ForagerFileRepositoryTest {
     @Test
     void shouldFindAll() {
         List<Forager> all = repo.findAll();
-        assertEquals(2, all.size());
+        assertEquals(1005, all.size());
     }
 
     @Test

@@ -10,6 +10,5 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext("dependency-configuration.xml");
         Controller controller = context.getBean(Controller.class);
         controller.run();
-
     }
 }

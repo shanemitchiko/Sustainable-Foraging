@@ -58,6 +58,4 @@ class ForageFileRepositoryTest {
 
         assertEquals(36, forage.getId().length());
     }
-
-
 }

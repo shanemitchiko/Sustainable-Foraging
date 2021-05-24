@@ -67,7 +67,6 @@ public class ForagerService {
         return result;
     }
 
-
     private void validateDuplicate(Forager forager, Result<Forager> result) {
         List<Forager> foragers = repository.findAll();
         for (Forager f : foragers) {

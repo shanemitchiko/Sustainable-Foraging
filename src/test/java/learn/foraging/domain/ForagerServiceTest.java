@@ -48,6 +48,4 @@ class ForagerServiceTest {
         assertFalse(result.isSuccess());
 
     }
-
-
 }

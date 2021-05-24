@@ -146,7 +146,6 @@ public class ForageService {
     }
 
     private void validateFields(Forage forage, Result<Forage> result) {
-        // No future dates.
         if (forage.getDate().isAfter(LocalDate.now())) {
             result.addErrorMessage("Forage date cannot be in the future.");
         }

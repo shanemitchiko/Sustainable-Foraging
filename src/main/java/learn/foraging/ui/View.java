@@ -159,7 +159,6 @@ public class View {
         io.readString("Press [Enter] to continue.");
     }
 
-    // display only
     public void displayHeader(String message) {
         io.println("");
         io.println(message);
@@ -218,13 +217,13 @@ public class View {
 
     public void displayReportKgPerItemByDay(Map<String, Double> itemKgByDay) {
         for(Map.Entry<String, Double> entry: itemKgByDay.entrySet()){
-            System.out.println(entry.getKey() + ": " + entry.getValue() + "kg");
+            System.out.printf("%s: %.2fkg%n", entry.getKey(), entry.getValue());
         }
     }
 
     public void displayReportCategoryValueByDay(Map<Category, Double> categoryValueByDay) {
         for(Map.Entry<Category, Double> entry: categoryValueByDay.entrySet()) {
-            System.out.println(entry.getKey() + ": " + "$" + entry.getValue());
+            System.out.printf("%s: $%.2f%n", entry.getKey(), entry.getValue());
         }
     }
 }
